@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <title>Health Prediction and Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d6d5e3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure full height of viewport */
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+        }
+
+        header {
+            background-color: #0e0d30;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        header h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            color: white;
+            margin: 0;
+        }
+
+        .midsection {
+            background-color: #0e0d30;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
+        .middescription h2 {
+            font-family: 'Verdana', sans-serif;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .middescription p {
+            font-family: "Playwrite NG Modern", cursive;
+            font-weight: 300;
+            margin: 10px;
+        }
+
+        .hoverimage {
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .hoverimage img {
+            max-width: 100%;
+            height: auto;
+            max-height: 400px;
+            border-radius: 8px;
+            animation: floatUpDown 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatUpDown {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: #faf8f7;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
+            margin: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #666;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px); /* Two cards per row */
+            }
+
+            .hoverimage img {
+                max-height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: calc(100% - 20px); /* Single card per row */
+                margin-bottom: 20px;
+            }
+
+            .hoverimage img {
+                max-height: 200px;
+            }
+        }
+
+        /* Custom Media Query for 390px width and 844px height */
+        @media (max-width: 390px) and (max-height: 844px) {
+            .card {
+                width: calc(100% - 20px); /* Single card per row */
+                margin-bottom: 20px;
+            }
+
+            .hoverimage img {
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ALEX</h1>
+        </div>
+    </header>
+
+    <section class="midsection">
+        <div class="middescription">
+            <h2>Predict Your Health</h2>
+            <p>Your health, our priority. Predict and manage your health conditions with ease.</p>
+        </div>
+        <div class="hoverimage">
+            <img src="/static/images/hoverdoctor1.png" alt="Doctor Image">
+        </div>
+    </section>
+
+    <section class="card-container">
+        <a href="heart" class="card">
+            <img src="/static/images/heart.png" alt="Heart Disease">
+            <h3>Heart Disease</h3>
+            <p>Predict heart diseases.</p>
+        </a>
+        <a href="kidney" class="card">
+            <img src="/static/images/kidney.png" alt="Kidney Disease">
+            <h3>Kidney Diseases</h3>
+            <p>Predict kidney diseases.</p>
+        </a>
+        <a href="cancer" class="card">
+            <img src="/static/images/cancer.png" alt="Cancer Analysis">
+            <h3>Cancer Analysis</h3>
+            <p>Predict cancer risks.</p>
+        </a>
+        <a href="diabetes" class="card">
+            <img src="/static/images/diabetes.png" alt="Diabetes Prediction">
+            <h3>Diabetes Prediction</h3>
+            <p>Predict diabetes risks.</p>
+        </a>
+    </section>
+</body>
+</html>
