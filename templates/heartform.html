@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetes Information Form</title>
+    <title>Health Information Form</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -23,7 +23,7 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             max-width: 800px;
             width: 100%;
-            margin: 40px auto;
+            margin: 20px auto;
         }
         .form-container h2 {
             margin-bottom: 20px;
@@ -32,8 +32,6 @@
             text-align: center;
             font-weight: 700;
         }
-
-        
         .form-row {
             display: flex;
             flex-wrap: wrap;
@@ -137,45 +135,97 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Diabetes Information Form</h2>
-        <form method="POST" action="{% url 'diabetes_result' %}">
+        <h2>Heart Information</h2>
+        <form method="POST" action="{% url 'heartresult1' %}">
             {% csrf_token %}
             <div class="form-row">
                 <div class="form-group">
                     <label for="age">Age:</label>
-                    <input type="number" id="age" name="age"  required>
+                    <input type="number" id="age" name="age" required>
                 </div>
                 <div class="form-group">
-                    <label for="pregnancy">Pregnancies:</label>
-                    <input type="number" id="pregnancy" name="pregnancy"  required>
+                    <label for="sex">Gender:</label>
+                    <select id="sex" name="sex" required>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="bp">Blood Pressure (BP):</label>
-                    <input type="number" id="bp" name="bp"  required>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="Glucose">Glucose:</label>
-                    <input type="number" id="Glucose" name="Glucose" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label for="SkinThickness">Skin Thickness:</label>
-                    <input type="number" id="SkinThickness" name="SkinThickness" required>
-                </div>
-                <div class="form-group">
-                    <label for="Insulin">Insulin:</label>
-                    <input type="number" id="Insulin" name="Insulin"  required>
+                    <label for="cp">Chest Pain Type:</label>
+                    <select id="cp" name="cp" required>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non-Anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="BMI">BMI:</label>
-                    <input type="number" id="BMI" name="BMI"  required>
+                    <label for="trestbps">Resting Blood Pressure:</label>
+                    <input type="number" id="trestbps" name="trestbps" required>
                 </div>
                 <div class="form-group">
-                    <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function:</label>
-                    <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" step="0.00001" required>
+                    <label for="chol">Cholesterol (mg/dl):</label>
+                    <input type="number" id="chol" name="chol" required>
+                </div>
+                <div class="form-group">
+                    <label for="fbs">Fasting Blood Sugar:</label>
+                    <select id="fbs" name="fbs" required>
+                        <option value="1">Greater than 120 mg/dl</option>
+                        <option value="0">Less than or equal to 120 mg/dl</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="restecg">Resting ECG Results:</label>
+                    <select id="restecg" name="restecg" required>
+                        <option value="0">Normal</option>
+                        <option value="1">Having ST-T wave abnormality</option>
+                        <option value="2">Showing probable or definite left ventricular hypertrophy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="thalach">Maximum Heart Rate Achieved:</label>
+                    <input type="number" id="thalach" name="thalach" required>
+                </div>
+                <div class="form-group">
+                    <label for="exang">Exercise Induced Angina:</label>
+                    <select id="exang" name="exang" required>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="oldpeak">Old Peak:</label>
+                    <input type="number" id="oldpeak" name="oldpeak" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="slope">Slope of Peak Exercise ST Segment:</label>
+                    <select id="slope" name="slope" required>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ca">Number of Major Vessels:</label>
+                    <select id="ca" name="ca" required>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group" style="flex: 1;">
+                    <label for="thal">Thal:</label>
+                    <input type="number" name="thal" id="thal">
+                    </select>
                 </div>
             </div>
             <div class="form-group">

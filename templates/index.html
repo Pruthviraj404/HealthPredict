@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+NG+Modern:wght@100..400&display=swap" rel="stylesheet">
     <title>Health Prediction and Management System</title>
     <style>
         body {
@@ -95,15 +95,14 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin: 20px;
-            flex-grow: 1;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 10px;
             box-sizing: border-box;
         }
-
+        
         .card {
             background-color: #faf8f7;
             border: 1px solid #ddd;
@@ -119,9 +118,10 @@
         }
 
         .card:hover {
+            border-color: #67e7f5; /* Border color changes to blue on hover */
             transform: translateY(-10px);
         }
-
+        
         .card img {
             width: 100%;
             height: auto;
@@ -174,7 +174,7 @@
 <body>
     <header>
         <div class="container">
-            <h1>ALEX</h1>
+            <h1>HEALTH PREDICT</h1>
         </div>
     </header>
 
@@ -189,21 +189,21 @@
     </section>
 
     <section class="card-container">
-        <a href="heart" class="card">
+        <a href="heartform" class="card">
             <img src="/static/images/heart.png" alt="Heart Disease">
             <h3>Heart Disease</h3>
             <p>Predict heart diseases.</p>
         </a>
-        <a href="kidney" class="card">
+        <a href="kidneydisease"class="card">
             <img src="/static/images/kidney.png" alt="Kidney Disease">
             <h3>Kidney Diseases</h3>
             <p>Predict kidney diseases.</p>
         </a>
-        <a href="cancer" class="card">
+        {% comment %} <a href="cancer" class="card">
             <img src="/static/images/cancer.png" alt="Cancer Analysis">
             <h3>Cancer Analysis</h3>
             <p>Predict cancer risks.</p>
-        </a>
+        </a> {% endcomment %}
         <a href="diabetes" class="card">
             <img src="/static/images/diabetes.png" alt="Diabetes Prediction">
             <h3>Diabetes Prediction</h3>

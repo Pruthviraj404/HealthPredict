@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidney Disease Prediction Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 20px;
+            box-sizing: border-box;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            font-weight: 700;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            flex: 1;
+            margin: 10px;
+            min-width: 180px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #555;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 18px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 12px;
+            font-size: 20px;
+            border-radius: 25px;
+            width: 50%;
+            margin: 30px auto 0;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 30px;
+            }
+            .form-container h2 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+            .form-group label {
+                font-size: 14px;
+            }
+            .form-group input,
+            .form-group select {
+                font-size: 16px;
+            }
+            .form-group input[type="submit"] {
+                font-size: 18px;
+                padding: 10px;
+                width: 100%;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                align-items: flex-start;
+                padding: 10px;
+            }
+            .form-container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            .form-container h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+            .form-group label {
+                font-size: 12px;
+            }
+            .form-group input,
+            .form-group select {
+                font-size: 14px;
+            }
+            .form-group input[type="submit"] {
+                font-size: 16px;
+                padding: 8px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Kidney Disease Prediction Form</h2>
+        <form method="POST"  action="{% url 'kidneyresult1' %}">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" value="60" required>
+                </div>
+                <div class="form-group">
+                    <label for="bp">Blood Pressure (mm Hg):</label>
+                    <input type="number" id="bp" name="bp" value="100" required>
+                </div>
+                <div class="form-group">
+                    <label for="sg">Specific Gravity:</label>
+                    <input type="number" id="sg" name="sg" step="0.001" value="1.010" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="al">Albumin:</label>
+                    <input type="number" id="al" name="al" value="3" required>
+                </div>
+                <div class="form-group">
+                    <label for="su">Sugar:</label>
+                    <input type="number" id="su" name="su" value="2" required>
+                </div>
+                <div class="form-group">
+                    <label for="rbc">Red Blood Cells:</label>
+                    <select id="rbc" name="rbc" required>
+                        <option value="abnormal" selected>Abnormal</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pc">Pus Cell:</label>
+                    <select id="pc" name="pc" required>
+                        <option value="abnormal" selected>Abnormal</option>
+                        <option value="normal">Normal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pcc">Pus Cell Clumps:</label>
+                    <select id="pcc" name="pcc" required>
+                        <option value="present" selected>Present</option>
+                        <option value="notpresent">Not Present</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ba">Bacteria:</label>
+                    <select id="ba" name="ba" required>
+                        <option value="present" selected>Present</option>
+                        <option value="notpresent">Not Present</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="bgr">Blood Glucose Random (mg/dL):</label>
+                    <input type="number" id="bgr" name="bgr" value="200" required>
+                </div>
+                <div class="form-group">
+                    <label for="bu">Blood Urea (mg/dL):</label>
+                    <input type="number" id="bu" name="bu" value="50" required>
+                </div>
+                <div class="form-group">
+                    <label for="sc">Serum Creatinine (mg/dL):</label>
+                    <input type="number" id="sc" name="sc" step="0.01" value="2.5" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="sod">Sodium (mEq/L):</label>
+                    <input type="number" id="sod" name="sod" value="130" required>
+                </div>
+                <div class="form-group">
+                    <label for="pot">Potassium (mEq/L):</label>
+                    <input type="number" id="pot" name="pot" step="0.1" value="6.0" required>
+                </div>
+                <div class="form-group">
+                    <label for="hemo">Hemoglobin (g/dL):</label>
+                    <input type="number" id="hemo" name="hemo" step="0.1" value="10.0" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="pcv">Packed Cell Volume (%):</label>
+                    <input type="number" id="pcv" name="pcv" value="30" required>
+                </div>
+                <div class="form-group">
+                    <label for="wc">White Blood Cell Count (cells/cubic mm):</label>
+                    <input type="number" id="wc" name="wc" value="12000" required>
+                </div>
+                <div class="form-group">
+                    <label for="rc">Red Blood Cell Count (millions/cubic mm):</label>
+                    <input type="number" id="rc" name="rc" step="0.1" value="3.5" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="htn">Hypertension:</label>
+                    <select id="htn" name="htn" required>
+                        <option value="yes" selected>Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dm">Diabetes Mellitus:</label>
+                    <select id="dm" name="dm" required>
+                        <option value="yes" selected>Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cad">Coronary Artery Disease:</label>
+                    <select id="cad" name="cad" required>
+                        <option value="yes" selected>Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="appet">Appetite:</label>
+                    <select id="appet" name="appet" required>
+                        <option value="poor" selected>Poor</option>
+                        <option value="good">Good</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="pe">Pedal Edema:</label>
+                    <select id="pe" name="pe" required>
+                        <option value="yes" selected>Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ane">Anemia:</label>
+                    <select id="ane" name="ane" required>
+                        <option value="yes" selected>Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Predict">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

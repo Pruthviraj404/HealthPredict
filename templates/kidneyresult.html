@@ -107,10 +107,11 @@
 </head>
 <body>
     <div class="result-container">
-        <h2>Diabetes Prediction Result</h2>
-        <p>Based on the information you provided, your Kidney disease prediction result is:</p>
-        <div class="result">{{ result }}</div>
-        <p class="advice">{{ advice }}</p> 
+        <h2>Kidney Disease Result</h2>
+        <p>Based on the information you provided, your Heart prediction result is:</p>
+        <div class="result">{{ prediction }}</div>
+        {% comment %} <p class="advice">{{ advice }}</p> {% endcomment %}
+        <p>{{result3}}
         <a href="/" class="back-button">Back to Home</a>
     </div>
 </body>
